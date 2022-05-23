@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "gasdomicilio-4e9b4"
+  },
+  "targets": {
+    "gasdomicilio-4e9b4": {
+      "hosting": {
+        "app": [
+          "gasdomicilio-4e9b4"
+        ]
+      }
+    }
+  }
+}

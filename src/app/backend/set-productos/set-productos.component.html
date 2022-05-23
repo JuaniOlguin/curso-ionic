@@ -20,19 +20,19 @@
     <ion-label position="floating">
         Nombre:
     </ion-label>
-    <ion-input type="string" inputmode="text"></ion-input>
+    <ion-input [(ngModel)]="newProducto.name" type="string" inputmode="text"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">
         Precio:
     </ion-label>
-    <ion-input type="number" inputmode="numeric"></ion-input>
+    <ion-input [(ngModel)]="newProducto.price" type="number" inputmode="numeric"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">
         Precio reducido:
     </ion-label>
-    <ion-input type="number" inputmode="numeric"></ion-input>
+    <ion-input [(ngModel)]="newProducto.priceSale" type="number" inputmode="numeric"></ion-input>
   </ion-item>
   <ion-item class="mt-4">
     <ion-label>
@@ -45,6 +45,6 @@
     </ion-buttons>
   </ion-item>
 
-  <ion-button expand="full" color="dark" class="m-5">Guardar</ion-button>
+  <ion-button (click)="guardarProd()" expand="full" color="dark" class="m-5">Guardar</ion-button>
 
 </ion-content>
