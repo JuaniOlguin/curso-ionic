@@ -10,41 +10,66 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <div class="container">
-    
+    <ion-button (click)="toggleNewProducto()" expand="full" color="dark" class="m-4">Crear Producto</ion-button>
+  <div *ngIf="enableNewProducto">
+    <ion-item>
+      <ion-buttons slot="end">
+        <ion-button (click)="enableNewProducto = false">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <h3 class="p-3 text-center">Ingrese datos del producto</h3>
+    <ion-item>
+      <ion-label position="floating">
+          Nombre:
+      </ion-label>
+      <ion-input [(ngModel)]="newProducto.nombre" type="string" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+          Precio:
+      </ion-label>
+      <ion-input [(ngModel)]="newProducto.precioNormal" type="number" inputmode="numeric"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+          Precio reducido:
+      </ion-label>
+      <ion-input [(ngModel)]="newProducto.precioReducido" type="number" inputmode="numeric"></ion-input>
+    </ion-item>
+    <ion-item class="mt-4">
+      <ion-label>
+          Foto:
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon slot="icon-only" name="image-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  
+    <ion-button (click)="guardarProducto()" expand="full" color="dark" class="m-5">Guardar</ion-button>
   </div>
-  <h3 class="p-3 text-center">Ingrese datos del producto</h3>
-  <ion-item>
-    <ion-label position="floating">
-        Nombre:
-    </ion-label>
-    <ion-input [(ngModel)]="newProducto.name" type="string" inputmode="text"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">
-        Precio:
-    </ion-label>
-    <ion-input [(ngModel)]="newProducto.price" type="number" inputmode="numeric"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">
-        Precio reducido:
-    </ion-label>
-    <ion-input [(ngModel)]="newProducto.priceSale" type="number" inputmode="numeric"></ion-input>
-  </ion-item>
-  <ion-item class="mt-4">
-    <ion-label>
-        Foto:
-    </ion-label>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon slot="icon-only" name="image-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-item>
 
-  <ion-button (click)="guardarProd()" expand="full" color="dark" class="m-5">Guardar</ion-button>
+  <div class="mt-3">
+    <ion-label>Lista de Productos</ion-label>
+    <ion-item *ngFor="let producto of productos">
+      <ion-label>{{producto.nombre}}</ion-label>
+      <ion-buttons>
+        <ion-button (click)="newProducto = producto; enableNewProducto = true">
+          <ion-icon slot="icon-only" color="primary" name="create"></ion-icon>
+        </ion-button>
+        <ion-button (click)="deleteProducto(producto)">
+          <ion-icon slot="icon-only" color="danger" name="trash-bin"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </div>
+  </div>
+  
+  
 
 </ion-content>
