@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Perfil
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon name="menu-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/profile']">
+        <ion-icon name="person-circle" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input [(ngModel)]="cliente.name" type="text" inputmode="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input [(ngModel)]="cliente.email" type="email" inputmode="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Celular</ion-label>
+    <ion-input [(ngModel)]="cliente.phone" type="number" inputmode="numeric"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Dirección</ion-label>
+    <ion-input [(ngModel)]="cliente.address" type="string" inputmode="text"></ion-input>
+  </ion-item>
+
+  <ion-item class="mt-5">
+    <ion-label>
+        Foto referencia:
+    </ion-label>
+    <ion-buttons slot="end">
+      <ion-button>
+        <label for="file-upload">
+          <ion-icon slot="icon-only" name="image-outline"></ion-icon>
+        </label>
+        <input (change)="newImageUpload($event)" type="file" id="file-upload" accept="image/*" style="display: none">
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <div class="container mt-4 d-flex justify-content-center container-img-upload">
+    <img [src]="cliente.photo" style="max-width: 300px;">
+  </div>
+
+  <ion-button (click)="register()" expand="full" color="dark" class="m-5">Registrarse</ion-button>
+  <ion-button (click)="logout()" expand="full" color="dark" class="mx-5 mt-0">Cerrar Sesión</ion-button>
+</ion-content>

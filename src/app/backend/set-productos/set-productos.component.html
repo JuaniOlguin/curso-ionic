@@ -46,17 +46,24 @@
       </ion-label>
       <ion-buttons slot="end">
         <ion-button>
-          <ion-icon slot="icon-only" name="image-outline"></ion-icon>
+          <label for="file-upload">
+            <ion-icon slot="icon-only" name="image-outline"></ion-icon>
+          </label>
+          <input (change)="newImageUpload($event)" type="file" id="file-upload" accept="image/*" style="display: none">
         </ion-button>
       </ion-buttons>
     </ion-item>
-  
+    <div class="container mt-4 d-flex justify-content-center container-img-upload">
+      <img [src]="newProducto.foto" style="max-width: 300px;">
+    </div>
+    
+
     <ion-button (click)="guardarProducto()" expand="full" color="dark" class="m-5">Guardar</ion-button>
   </div>
 
-  <div class="mt-3">
+  <div class="mt-3 p-5">
     <ion-label>Lista de Productos</ion-label>
-    <ion-item *ngFor="let producto of productos">
+    <ion-item class="p-2" *ngFor="let producto of productos">
       <ion-label>{{producto.nombre}}</ion-label>
       <ion-buttons>
         <ion-button (click)="newProducto = producto; enableNewProducto = true">

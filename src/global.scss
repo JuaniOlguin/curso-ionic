@@ -21,3 +21,12 @@ body{
     font-family: 'Poppins', sans-serif!important;
     color: white;
 }
+
+.loading-custom-class-set-prod{
+    --spinner-color: #fff;
+}
+.toast-custom-class-set-prod{
+    --color: #000;
+    --background: #FFF;
+    text-align: center;
+}

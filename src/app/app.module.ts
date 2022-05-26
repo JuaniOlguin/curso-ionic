@@ -9,6 +9,8 @@ import { RouteReuseStrategy } from '@angular/router';
 //Firebase / Firestore
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 //Ionic
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -26,7 +28,9 @@ import { AppRoutingModule } from './app-routing.module';
     PagesModule,
     BackendModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
